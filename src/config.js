@@ -88,12 +88,12 @@ export const FORCE_JOIN_ENABLED = true;
 export const FORCE_JOIN_CHANNELS = [
   // {
   //   chatId: "@ChannelOne",
-  //   inviteUrl: "https://t.me/ChannelOne",
+  //   inviteUrl: "https://t.me/missariapapers",
   //   name: "Channel One"
   // },
   // {
   //   chatId: "@ChannelTwo",
-  //   inviteUrl: "https://t.me/ChannelTwo",
+  //   inviteUrl: "https://t.me/linkbydave",
   //   name: "Channel Two"
   // }
 ];
