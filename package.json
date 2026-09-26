@@ -1,0 +1,25 @@
+{
+  "name": "bloom-petal-pinterest-bot",
+  "version": "2.2.2",
+  "description": "Production-style Pinterest content publisher for Telegram \u2014 every user connects their own channel via the bot.",
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "dev": "node --watch src/main.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20.20.2 <21"
+  },
+  "dependencies": {
+    "axios": "^1.11.0",
+    "better-sqlite3": "^12.2.0",
+    "dotenv": "^17.2.1",
+    "node-cron": "^4.2.1",
+    "pino": "^9.9.0",
+    "pino-pretty": "^13.1.1",
+    "sharp": "^0.34.3",
+    "telegraf": "^4.16.3"
+  }
+}

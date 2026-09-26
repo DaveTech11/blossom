@@ -1,0 +1,41 @@
+services:
+  - type: web
+    name: bloom-petal-bot
+    runtime: node
+    # NODE_VERSION here is the highest-precedence way to pin the Node
+    # version on Render, and applies to both the build and start phases.
+    # This must match .node-version and package.json's "engines.node".
+    # An unbounded engines range (e.g. ">=20") silently resolves to
+    # Render's current default (which has moved well past Node 20), so
+    # better-sqlite3's native binding gets built against one Node ABI
+    # and then loaded by another — do not remove this pin or unbound
+    # engines.node again.
+    buildCommand: npm ci --omit=dev
+    startCommand: node src/main.js
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20.20.2
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      # No channel ID here — users connect their own channel(s) through
+      # the bot itself (/start → ➕ Add Channel). Nothing to configure.
+      - key: PINTEREST_PROVIDER
+        value: rebix
+      - key: PINTEREST_ENDPOINT
+        value: https://api-rebix.zone.id/api/pinterest
+      - key: POST_INTERVAL
+        value: 3600
+      - key: IMAGES_PER_POST
+        value: 1
+      - key: SEARCH_RESULTS_PER_QUERY
+        value: 20
+      - key: REQUIRE_SOURCE_LINK
+        value: true
+      - key: RUN_ON_START
+        value: false
+      - key: LOG_LEVEL
+        value: info
+      # Add your PINTEREST_ACCESS_TOKEN if using official provider
+      # - key: PINTEREST_ACCESS_TOKEN
+      #   sync: false
